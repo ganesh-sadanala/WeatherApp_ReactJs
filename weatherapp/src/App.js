@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 const api = {
   key: process.env.REACT_APP_MY_API_KEY,
   base: "https://api.openweathermap.org/data/2.5/",
 };
 function App() {
+  const { query, setQuery } = useState("");
+  const { weather, setWeather } = useState({});
+
+  const search = (event) => {
+    if (event.key == "enter") {
+    }
+  };
   const dateBuilder = (d) => {
     let months = [
       "January",
@@ -46,9 +53,13 @@ function App() {
             placeholder="Search... "
           ></input>
         </div>
-        <div className="Location-box">
-          <div className="Location">New York City US</div>
+        <div className="location-box">
+          <div className="location">New York City, US</div>
           <div className="date">{dateBuilder(new Date())}</div>
+        </div>
+        <div className="weather-box">
+          <div className="temp">15°C</div>
+          <div className="weather">Sunny</div>
         </div>
       </main>
     </div>
