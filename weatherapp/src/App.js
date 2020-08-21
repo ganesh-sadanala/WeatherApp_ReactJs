@@ -9,7 +9,11 @@ function App() {
   const { weather, setWeather } = useState({});
 
   const search = (event) => {
-    if (event.key == "enter") {
+    if (event.key == "Enter") {
+      // request the end point
+      fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+        .then((res) => res.json()) // get the result and convert that and return
+        .then((result) => setWeather(result)); // pass the data to setWeather
     }
   };
   const dateBuilder = (d) => {
